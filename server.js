@@ -10,7 +10,7 @@ connectDB();
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: "https://mern-custcards.azurewebsites.net/",
   })
 );
 app.use(express.json());
