@@ -80,8 +80,9 @@ const handleLogin = async (req, res) => {
           } else {
             res
               .cookie("token", token, {
-                httpOnly: true,
                 maxAge: 24 * 60 * 60 * 1000,
+                sameSite: "None", // Set to None to allow cross-origin requests
+                secure: true,
               })
               .json(user);
           }
@@ -100,7 +101,13 @@ const handleLogin = async (req, res) => {
 //profile
 
 const handleProfile = async (req, res) => {
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://mern-custcards.azurewebsites.net"
+  );
   const { token } = req.cookies;
+  console.log("token from browser is: " + token);
   if (token) {
     jwt.verify(token, process.env.SECRET_KEY, {}, async (err, user) => {
       if (err) {
@@ -110,6 +117,7 @@ const handleProfile = async (req, res) => {
       const { userName } = user;
       try {
         const foundUser = await UserModel.findOne({ userName: userName });
+        console.log("Found user is: " + foundUser);
         if (!foundUser) {
           res.json(null);
           return;

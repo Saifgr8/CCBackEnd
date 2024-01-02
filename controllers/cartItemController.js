@@ -18,7 +18,7 @@ const saveCartItems = async (req, res) => {
     const user = await UserModel.findOne({ userName: username }).exec();
 
     if (!user) {
-      res.json({ error: "Unidentified User" });
+      res.json({ error: "Unidentified User, Please login first" });
       return;
     }
 

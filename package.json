@@ -4,9 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "build": "node build server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +17,6 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
-    "nodemon": "^3.0.2",
-    "webpack-cli": "^5.1.4",
-    "webpack-node-externals": "^3.0.0"
-  },
-  "devDependencies": {
-    "webpack": "^5.89.0"
+    "nodemon": "^3.0.2"
   }
 }

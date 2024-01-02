@@ -10,9 +10,10 @@ connectDB();
 app.use(
   cors({
     credentials: true,
-    origin: "https://mern-custcards.azurewebsites.net/",
+    origin: "https://mern-custcards.azurewebsites.net",
   })
 );
+//https://mern-custcards.azurewebsites.net
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
